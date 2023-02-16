@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int choice, withdraw, deposit, balance = 5000;
+
+    printf("Welcome to ABC Bank ATM\n");
+    printf("Your current balance is %d\n", balance);
+
+    printf("Please select an option:\n");
+    printf("1. Withdraw\n");
+    printf("2. Deposit\n");
+    printf("3. Balance Inquiry\n");
+    printf("4. Exit\n");
+
+    scanf("%d", &choice);
+
+    switch (choice) {
+        case 1:
+            printf("Enter the amount to withdraw: ");
+            scanf("%d", &withdraw);
+            if (withdraw > balance) {
+                printf("Insufficient balance\n");
+            } else {
+                balance = balance - withdraw;
+                printf("Your current balance is %d\n", balance);
+            }
+            break;
+        case 2:
+            printf("Enter the amount to deposit: ");
+            scanf("%d", &deposit);
+            balance = balance + deposit;
+            printf("Your current balance is %d\n", balance);
+            break;
+        case 3:
+            printf("Your current balance is %d\n", balance);
+            break;
+        case 4:
+            exit(0);
+        default:
+            printf("Invalid option\n");
+            break;
+    }
+
+    return 0;
+}
